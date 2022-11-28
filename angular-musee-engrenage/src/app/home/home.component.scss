@@ -1,0 +1,21 @@
+.containerBackgroundHome {
+  width: 100vw;
+  height: 100vh;
+  background: url("../../assets/images/engrenages.jpg");
+  background-size: cover;
+  display: flex;
+  .BackgroundHome{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.5);
+
+  }
+  .containerPage{
+    margin: auto;
+    width: 50vw;
+    height: 100vh;
+    background-color: white;
+  }
+
+
+}

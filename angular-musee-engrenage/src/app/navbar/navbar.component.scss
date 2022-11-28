@@ -1,0 +1,27 @@
+.containerNavbar{
+  width: 100%;
+  height: 8%;
+  background-color: black;
+  .isActive{
+    button{
+      background-color: black;
+      color: white;
+      border: white solid 1px;
+    }
+  }
+  .navbar{
+    width: 100%;
+    height: 100%;
+    gap: 3rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-auto-flow: column;
+    button{
+      border-radius: 45px;
+    }
+
+  }
+}
+
+

@@ -1,0 +1,13 @@
+<div class="containerEngrenages">
+  <button class="addEngrenage" mat-raised-button color="primary" [routerLink]="['/engrenageCreate']">Ajouter</button>
+
+  <div class="engrenages">
+      <mat-card [routerLink]="['/engrenageInfo/'+engrenage.id]" class="engrenage" *ngFor="let engrenage of engrenagesList">
+        <mat-card-subtitle>Engrenage {{engrenage.nom}}
+          <button class="modEngrenage" mat-raised-button color="warn" [routerLink]="['/engrenageModify']">modifer</button></mat-card-subtitle>
+
+        <div mat-card-image class="engrImg"></div>
+        <div mat-card-subtitle class="engrName">{{engrenage.nom|titlecase}}</div>
+      </mat-card>
+  </div>
+</div>
