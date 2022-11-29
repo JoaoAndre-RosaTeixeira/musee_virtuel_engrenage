@@ -20,17 +20,14 @@ def create_connection(db_file):
 
 
 def insert_into(conn, name, nomEngrenage, avantage, inconvenient, image, Date, userName):
-    cur = conn.cursor()
-    cur.execute(f'''INSERT INTO {name} 
-                (id, nomEngrenage, avantage, inconvenient, image, Date , userName) 
+    cur.execute(f'''INSERT INTO {name} (nomEngrenage, avantage, inconvenient, image, Date , userName) 
                 VALUES (
-                ?,
-                {nomEngrenage}, 
-                ({avantage}),
-                ({inconvenient}), 
-                {image}, 
-                {Date},
-                {userName}
+                '{nomEngrenage}', 
+                '{avantage}',
+                '{inconvenient}', 
+                '{image}', 
+                '{Date}',
+                '{userName}'
                 )
                  ''')
 
@@ -48,7 +45,7 @@ def createEngrenageSQL(nomEngrenage, avantage, inconvenient, image, Date, userNa
         if conn is not None:
             # create exchange table
             # YOUR CODE
-            insert_into(conn, "engrenage", {nomEngrenage}, {avantage}, {inconvenient}, {image}, {Date}, {userName})
+            insert_into(conn, "engrenage", nomEngrenage, avantage, inconvenient, image, Date, userName)
 
         else:
             print("Error! cannot create the database connection.")
