@@ -1,6 +1,7 @@
-import os
+import collections
 import sqlite3
 from sqlite3 import Error
+from flask import jsonify
 
 
 def create_connection(db_file):
@@ -18,36 +19,40 @@ def create_connection(db_file):
         print(e)
 
 
-
-def insert_into(conn, name, nomEngrenage, avantage, inconvenient, image, Date, userName):
-
+def selectEngrenages(conn):
     cur = conn.cursor()
-    cur.execute(f'''INSERT INTO {name} (nomEngrenage, avantage, inconvenient, image, Date , userName) 
-                VALUES (
-                '{nomEngrenage}', 
-                '{avantage}',
-                '{inconvenient}', 
-                '{image}', 
-                '{Date}',
-                '{userName}'
-                )
+    cur.execute(f'''
+    SELECT * FROM engrenage
                  ''')
+    rows = cur.fetchall()
 
-    conn.commit()
+    objects_list = []
+    for row in rows:
+        d = collections.OrderedDict()
+        d['id'] = int(row[0])
+        d['nomEngrenage'] = row[1]
+        d['avantage'] = row[2]
+        d['inconvenient'] = row[3]
+        d['image'] = row[4]
+        d['Date'] = row[5]
+        d['userName'] = row[6]
+        objects_list.append(d)
+
+    return jsonify(objects_list)
 
 
 # the name of the database
 db_name = "dataEngrenage.db"
 
 
-def createEngrenageSQL(nomEngrenage, avantage, inconvenient, image, Date, userName):
+def updateEngrenageSQL():
     conn = create_connection(db_name)
 
     try:
         if conn is not None:
             # create exchange table
             # YOUR CODE
-            insert_into(conn, "engrenage", nomEngrenage, avantage, inconvenient, image, Date, userName)
+            return selectEngrenages(conn)
 
         else:
             print("Error! cannot create the database connection.")

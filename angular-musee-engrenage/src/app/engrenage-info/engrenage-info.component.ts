@@ -10,6 +10,13 @@ import {IEngrenage} from "../Interface/IEngrenage";
 })
 export class EngrenageInfoComponent implements OnInit {
 
+
+
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+    private httpService: HttpClientService) {
+    this.httpService.getRequest
+  }
   private _engrenage: IEngrenage | undefined
   get engrenage(): IEngrenage {
     return <IEngrenage>this._engrenage;
@@ -17,12 +24,6 @@ export class EngrenageInfoComponent implements OnInit {
 
   set engrenage(value: IEngrenage) {
     this._engrenage = value;
-  }
-
-  constructor(
-    private _activatedRoute: ActivatedRoute,
-    private httpService: HttpClientService) {
-    this.httpService.getRequest
   }
 
   apiLoad() {

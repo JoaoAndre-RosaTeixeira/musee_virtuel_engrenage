@@ -5,6 +5,7 @@ from Database.getEngrenage import getEngrenage
 import Database.createDatabase as createDatabase
 from Database.getEngrenages import getEngrenages
 from Database.createEngrenage import createEngrenageSQL
+from Database.updateEngrenage import updateEngrenageSQL
 from os.path import exists
 
 
@@ -63,6 +64,14 @@ class createEngrenage(Resource):
         userName = res.get("userName")
         createEngrenageSQL(nomEngrenage, avantage, inconvenient, image, Date, userName)
 api.add_resource(createEngrenage, '/api/createEngrenage', methods=["POST"])
+
+
+class updateEngrenage(Resource):
+    def get(self, updateEngrenageid):
+        print(updateEngrenageid)
+        return updateEngrenage(updateEngrenageid)
+api.add_resource(updateEngrenage, '/api/updateEngrenage/<engrenageid>')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

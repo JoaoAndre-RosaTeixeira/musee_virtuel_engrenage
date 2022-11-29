@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
 import {Engrenage} from "../Class/engrenage";
+import {IEngrenage} from "../Interface/IEngrenage";
+import {ActivatedRoute} from "@angular/router";
+import {HttpClientService} from "../../services/http-client.service";
 
 @Component({
   selector: 'app-engrenage-update',
@@ -13,8 +16,12 @@ export class EngrenageUpdateComponent implements OnInit {
   result: string = '';
 
   constructor(
+    private _activatedRoute: ActivatedRoute,
+    private httpService: HttpClientService,
     private http: HttpClient
-  ) {}
+  ) {
+    this.httpService.getRequest
+  }
 
   submit (form: NgForm) {
     let date: Date = new Date()
@@ -46,10 +53,35 @@ export class EngrenageUpdateComponent implements OnInit {
     // ou
     // this.result = form.controls['username'].value;
   }
-
-  ngOnInit() {
+  private _engrenage: IEngrenage | undefined
+  get engrenage(): IEngrenage {
+    return <IEngrenage>this._engrenage;
   }
 
+  set engrenage(value: IEngrenage) {
+    this._engrenage = value;
+  }
+
+  apiLoad() {
+    this._activatedRoute.params.subscribe((params) => {
+      this.httpService.getRequest<IEngrenage>("http://127.0.0.1:5000/api/updateEngrenages/"+params['slug']).subscribe((json) => {
+        this.engrenage = json
+      });
+    })
+
+
+  }
+
+  ngOnInit(): void {
+    this.apiLoad()
+  }
+
+  get engrenageAvantages(): Array<string> {
+    return this.engrenage.avantage.split(",");
+  }
+  get engrenageInconvenients(): Array<string> {
+    return this.engrenage.avantage.split(",");
+  }
 
 
 }
