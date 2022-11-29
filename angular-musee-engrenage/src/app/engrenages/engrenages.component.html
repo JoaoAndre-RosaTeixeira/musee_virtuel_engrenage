@@ -5,7 +5,7 @@
       <mat-card routerLink="/engrenageInfo/{{engrenage.id}}" class="engrenage" *ngFor="let engrenage of engrenagesListres">
         <mat-card-subtitle>{{engrenage.nomEngrenage}}</mat-card-subtitle>
 
-        <div mat-card-image class="engrImg"></div>
+        <img mat-card-image class="engrImg" src="{{engrenage.image}}">
         <div mat-card-subtitle class="engrName">{{engrenage.nomEngrenage|titlecase}}</div>
       </mat-card>
   </div>

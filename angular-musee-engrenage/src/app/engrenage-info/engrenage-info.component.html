@@ -3,7 +3,7 @@
     <mat-card class="example-card">
       <mat-card-header>
         <mat-card-title-group>
-          <button class="modEngrenage" mat-raised-button color="warn" [routerLink]="['/engrenageModify']">modifer</button>
+          <button class="modEngrenage" mat-raised-button color="warn" [routerLink]="['/engrenageUpdate//{{engrenage.id}}']">modifer</button>
           <mat-card-title>{{engrenage.nomEngrenage}}</mat-card-title>
           <mat-card-subtitle>Publié le {{engrenage.Date}} par {{engrenage.userName}}</mat-card-subtitle>
           <img mat-card-xl-image src="{{engrenage.image}}" >
