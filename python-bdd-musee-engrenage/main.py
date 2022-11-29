@@ -13,7 +13,7 @@ def install(package):
 
 # subprocess.Popen('echo "Geeks 4 Geeks"', shell=True)
 
-pips_install = ['numpy', 'panda', 'requests', 'beautifulsoup4', "Flask ", "flask-restful", "flask-cors"]
+pips_install = ['numpy', 'panda', 'requests', 'beautifulsoup4', "Flask ", "flask-restful", "flask-cors", "requests"]
 
 # for pip in pips_install:
 #     try:

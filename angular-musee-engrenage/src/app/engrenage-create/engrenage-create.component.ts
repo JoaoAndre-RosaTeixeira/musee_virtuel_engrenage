@@ -14,14 +14,15 @@ export class EngrenageCreateComponent implements OnInit {
   result: string = '';
 
   submit (form: NgForm) {
-
+    let date: Date = new Date()
+    let dateStr: string = date.toISOString().split('T')[0];
 
     let engrenage = new Engrenage(
       form.value.nomEngrenage,
       form.value.avantage,
       form.value.inconvenient,
       form.value.image,
-      form.value.Date,
+      dateStr,
       form.value.userName
     )
 
