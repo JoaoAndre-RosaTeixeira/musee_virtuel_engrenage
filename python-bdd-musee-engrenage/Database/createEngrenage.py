@@ -20,17 +20,14 @@ def create_connection(db_file):
 
 
 def insert_into(conn, name, nomEngrenage, avantage, inconvenient, image, Date, userName):
-    cur = conn.cursor()
-    cur.execute(f'''INSERT INTO {name} 
-                (id, nomEngrenage, avantage, inconvenient, image, Date , userName) 
+    cur.execute(f'''INSERT INTO {name} (nomEngrenage, avantage, inconvenient, image, Date , userName) 
                 VALUES (
-                ?,
-                {nomEngrenage}, 
-                ({avantage}),
-                ({inconvenient}), 
-                {image}, 
-                {Date},
-                {userName}
+                '{nomEngrenage}', 
+                '{avantage}',
+                '{inconvenient}', 
+                '{image}', 
+                '{Date}',
+                '{userName}'
                 )
                  ''')
 

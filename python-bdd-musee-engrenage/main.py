@@ -54,8 +54,6 @@ api.add_resource(Engrenage, '/api/getEngrenages/<engrenageid>')
 
 class createEngrenage(Resource):
     def post(self):
-        print( request.get_json())
-        print( "IXCCCCCCCCCCCCCCCCCCCCCIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
         res = request.get_json()
         nomEngrenage = res.get("nomEngrenage")
         avantage = res.get("avantage")
