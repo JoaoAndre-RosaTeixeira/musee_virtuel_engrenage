@@ -18,21 +18,13 @@ def create_connection(db_file):
         print(e)
 
 
-def create_table(conn, name, cols):
-    """ create a table from the create_table_sql statement
-    :param conn: Connection object
-    :param create_table_sql: a CREATE TABLE statement
-    :return:
-    """
-    # YOUR CODE
-    cur = conn.cursor()
-    cur.execute(f"CREATE TABLE IF NOT EXISTS {name}({cols})")
 
 def insert_into(conn, name, nomEngrenage, avantage, inconvenient, image, Date, userName):
     cur = conn.cursor()
     cur.execute(f'''INSERT INTO {name} 
-                (nomEngrenage, avantage, inconvenient, image, Date , userName) 
+                (id, nomEngrenage, avantage, inconvenient, image, Date , userName) 
                 VALUES (
+                ?,
                 {nomEngrenage}, 
                 ({avantage}),
                 ({inconvenient}), 
@@ -49,7 +41,7 @@ def insert_into(conn, name, nomEngrenage, avantage, inconvenient, image, Date, u
 db_name = "dataEngrenage.db"
 
 
-def main(nomEngrenage, avantage, inconvenient, image, Date, userName):
+def createEngrenageSQL(nomEngrenage, avantage, inconvenient, image, Date, userName):
     conn = create_connection(db_name)
 
     try:

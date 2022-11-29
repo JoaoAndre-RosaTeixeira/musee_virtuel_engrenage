@@ -28,12 +28,7 @@ export class EngrenagesComponent implements OnInit {
   }
   ngOnInit(): void {
     this.httpService.getRequest<Array<IEngrenage>>("http://127.0.0.1:5000/api/getEngrenages").subscribe((json) => {
-
-      console.dir(json)
-
       this._engrenagesList = json;
-
-      console.log(this._engrenagesList, "ICIIIIIIIIIIIIIIIIIIIIIIIIIIII")
     });
 
 

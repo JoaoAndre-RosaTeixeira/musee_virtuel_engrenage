@@ -4,6 +4,7 @@ from Database.wikiEngrenages import wikiGetEngrenages
 from Database.getEngrenage import getEngrenage
 import Database.createDatabase as createDatabase
 from Database.getEngrenages import getEngrenages
+from Database.createEngrenage import createEngrenageSQL
 from os.path import exists
 
 
@@ -21,14 +22,13 @@ pips_install = ['numpy', 'panda', 'requests', 'beautifulsoup4', "Flask ", "flask
 #     except:
 #         print(f"impossible d'installer {pip}")
 
-from flask import Flask
+from flask import Flask, request
 from flask_restful import Resource, Api
 from flask_cors import CORS
 
 print(exists("dataEngrenage.db"))
 if exists("dataEngrenage.db") == False:
     createDatabase.main()
-createDatabase.main()
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
@@ -51,11 +51,21 @@ class Engrenage(Resource):
         return getEngrenage(engrenageid)
 api.add_resource(Engrenage, '/api/getEngrenages/<engrenageid>')
 
+
 class createEngrenage(Resource):
-    def get(self, engrenageid):
-        print(engrenageid)
-        return getEngrenage(engrenageid)
-api.add_resource(createEngrenage, '/api/getEngrenages/<engrenageid>')
+    def post(self):
+        print( request.get_json())
+        print( "IXCCCCCCCCCCCCCCCCCCCCCIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
+        res = request.get_json()
+        print(res.get("nomEngrenage"))
+        nomEngrenage = res.get("nomEngrenage")
+        avantage = res.get("avantage")
+        inconvenient = res.get("inconvenient")
+        image = res.get("image")
+        Date = res.get("Date")
+        userName = res.get("userName")
+        createEngrenageSQL(nomEngrenage, avantage, inconvenient, image, Date, userName)
+api.add_resource(createEngrenage, '/api/createEngrenage', methods=["POST"])
 
 if __name__ == '__main__':
     app.run(debug=True)

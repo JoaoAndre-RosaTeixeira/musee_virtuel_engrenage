@@ -152,7 +152,7 @@ def main():
             # create exchange table
             # YOUR CODE
             create_table(conn, "engrenage", '''
-                                id VARCHAR(255) PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+                                id integer PRIMARY KEY AUTOINCREMENT, 
                                 nomEngrenage VARCHAR(255) NOT NULL, 
                                 avantage VARCHAR(255) NOT NULL, 
                                 inconvenient VARCHAR(255) NOT NULL, 
