@@ -21,25 +21,25 @@ export class EngrenageCreateComponent implements OnInit {
   ngOnInit() {
   }
 
-  uploadFile(event) {
-    const file = (event.target as HTMLInputElement).files[0];
-    this.form.patchValue({
-      avatar: file,
-    });
-    this.form.get('avatar').updateValueAndValidity();
-  }
-
-  submitForm() {
-    var formData: any = new FormData();
-    formData.append('name', this.form.get('name').value);
-    formData.append('avatar', this.form.get('avatar').value);
-    this.http
-      .post('http://localhost:4000/api/create-user', formData)
-      .subscribe({
-        next: (response) => console.log(response),
-        error: (error) => console.log(error),
-      });
-  }
+  // uploadFile(event) {
+  //   const file = (event.target as HTMLInputElement).files[0];
+  //   this.form.patchValue({
+  //     avatar: file,
+  //   });
+  //   this.form.get('avatar').updateValueAndValidity();
+  // }
+  //
+  // submitForm() {
+  //   var formData: any = new FormData();
+  //   formData.append('name', this.form.get('name').value);
+  //   formData.append('avatar', this.form.get('avatar').value);
+  //   this.http
+  //     .post('http://localhost:4000/api/create-user', formData)
+  //     .subscribe({
+  //       next: (response) => console.log(response),
+  //       error: (error) => console.log(error),
+  //     });
+  // }
 
   // this.http.post<any>('https://reqres.in/invalid-url', { title: 'Angular POST Request Example' }).subscribe({
   //   next: data => {

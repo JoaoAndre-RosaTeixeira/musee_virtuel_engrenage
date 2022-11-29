@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'engrenages', component: EngrenagesComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'engrenageInfo/:id', component: EngrenageInfoComponent },
+  { path: 'engrenageInfo/:slug', component: EngrenageInfoComponent },
   { path: 'engrenageCreate', component: EngrenageCreateComponent },
 
 ];

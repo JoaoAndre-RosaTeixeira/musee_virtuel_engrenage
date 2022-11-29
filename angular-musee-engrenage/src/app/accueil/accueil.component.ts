@@ -24,7 +24,6 @@ export class AccueilComponent implements OnInit {
 
   apiLoad() {
     this.httpService.getRequest("http://127.0.0.1:5000/api/wikiEngrenages").subscribe((json) => {
-        console.log(json)
       this._textAccueil = json
       });
 

@@ -1,7 +1,6 @@
+import collections
 import sqlite3
 from sqlite3 import Error
-import collections
-
 from flask import jsonify
 
 
@@ -20,12 +19,10 @@ def create_connection(db_file):
         print(e)
 
 
-def selectEngrenage(conn, id):
+def selectEngrenages(conn):
     cur = conn.cursor()
     cur.execute(f'''
-    SELECT * FROM engrenage 
-    WHERE id = {id}
-    
+    SELECT * FROM engrenage
                  ''')
     rows = cur.fetchall()
 
@@ -41,21 +38,21 @@ def selectEngrenage(conn, id):
         d['userName'] = row[6]
         objects_list.append(d)
 
-    return jsonify(objects_list[0])
+    return jsonify(objects_list)
 
 
 # the name of the database
 db_name = "dataEngrenage.db"
 
 
-def getEngrenage(id):
+def getEngrenages():
     conn = create_connection(db_name)
 
     try:
         if conn is not None:
             # create exchange table
             # YOUR CODE
-            return selectEngrenage(conn, id)
+            return selectEngrenages(conn)
 
         else:
             print("Error! cannot create the database connection.")

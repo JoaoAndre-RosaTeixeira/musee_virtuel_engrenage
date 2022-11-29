@@ -1,1 +1,25 @@
-<p>engrenage-info works!</p>
+<div class="containerEngrenageInfos">
+  <div class="engrenageInfos">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title-group>
+          <button class="modEngrenage" mat-raised-button color="warn" [routerLink]="['/engrenageModify']">modifer</button>
+          <mat-card-title>{{engrenage.nomEngrenage}}</mat-card-title>
+          <mat-card-subtitle>Publié le {{engrenage.Date}} par {{engrenage.userName}}</mat-card-subtitle>
+          <img mat-card-xl-image src="{{engrenage.image}}" >
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="containerArrayIncAv">
+          <ul ><h3>Avantages :</h3>
+            <li *ngFor="let avantage of engrenageAvantages ">{{avantage}}</li>
+          </ul>
+          <ul ><h3>Inconvenients :</h3>
+            <li *ngFor="let inconvenient of engrenageInconvenients " >{{inconvenient}}</li>
+          </ul>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+</div>

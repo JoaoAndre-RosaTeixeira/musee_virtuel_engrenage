@@ -1,0 +1,34 @@
+.containerArrayIncAv{
+  display: flex;
+  ul{margin: 15px;}
+}
+
+.mat-card{
+  display: grid;
+  justify-content: center;
+}
+
+.engrenageInfos{
+  display: grid;
+  justify-content: center;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    width: 5px; /* width of the entire scrollbar */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent; /* color of the tracking area */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(36, 36, 36); /* color of the scroll thumb */
+    border-radius: 1px; /* roundness of the scroll thumb */
+    // border: 1px solid rgb(128, 128, 128); /* creates padding around scroll thumb */
+  }
+}
+
+.mat-card-title-group{
+  display: grid;
+  justify-content: space-between;
+
+}
