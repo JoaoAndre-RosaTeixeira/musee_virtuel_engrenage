@@ -1,19 +1,19 @@
 export class Engrenage {
-  id: number;
-  nom: string;
-  img: string;
-  advantages: Array<string>;
-  disadvantages: Array<string>;
-  addDate: string;
-  adderName: string;
 
-  constructor(id: number, nom: string, img: string, advantages: Array<string>, disadvantages: Array<string>, addDate: string, adderName: string ) {
-    this.id = id;
-    this.nom = nom;
-    this.img = img;
-    this.advantages = advantages;
-    this.disadvantages = disadvantages;
-    this.addDate = addDate;
-    this.adderName = adderName;
+  nomEngrenage: string;
+  avantage: string;
+  inconvenient: string;
+  image: string;
+  Date: string;
+  userName: string;
+
+  constructor(nomEngrenage: string, avantage: string, inconvenient: string, image: string, Date: string , userName: string) {
+
+    this.nomEngrenage = nomEngrenage;
+    this.avantage = avantage;
+    this.inconvenient = inconvenient;
+    this.image = image;
+    this.Date = Date;
+    this.userName = userName;
   }
 }

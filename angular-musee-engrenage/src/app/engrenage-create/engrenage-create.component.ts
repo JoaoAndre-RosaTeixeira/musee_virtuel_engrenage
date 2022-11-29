@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import { NgForm } from '@angular/forms'
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
+import {Engrenage} from "../Class/engrenage";
 
 @Component({
   selector: 'app-engrenage-create',
@@ -9,47 +11,30 @@ import {HttpClient} from '@angular/common/http';
 })
 export class EngrenageCreateComponent implements OnInit {
 
-  form: FormGroup;
+  result: string = '';
 
-  constructor(public fb: FormBuilder, private http: HttpClient) {
-    this.form = this.fb.group({
-      name: [''],
-      avatar: [null],
-    });
+  submit (form: NgForm) {
+
+
+    let engrenage = new Engrenage(
+      form.value.nomEngrenage,
+      form.value.avantage,
+      form.value.inconvenient,
+      form.value.image,
+      form.value.Date,
+      form.value.userName
+    )
+
+
+    console.log(engrenage)
+
+    // ou
+    // this.result = form.controls['username'].value;
   }
 
   ngOnInit() {
   }
 
-  // uploadFile(event) {
-  //   const file = (event.target as HTMLInputElement).files[0];
-  //   this.form.patchValue({
-  //     avatar: file,
-  //   });
-  //   this.form.get('avatar').updateValueAndValidity();
-  // }
-  //
-  // submitForm() {
-  //   var formData: any = new FormData();
-  //   formData.append('name', this.form.get('name').value);
-  //   formData.append('avatar', this.form.get('avatar').value);
-  //   this.http
-  //     .post('http://localhost:4000/api/create-user', formData)
-  //     .subscribe({
-  //       next: (response) => console.log(response),
-  //       error: (error) => console.log(error),
-  //     });
-  // }
-
-  // this.http.post<any>('https://reqres.in/invalid-url', { title: 'Angular POST Request Example' }).subscribe({
-  //   next: data => {
-  //     this.postId = data.id;
-  //   },
-  //   error: error => {
-  //     this.errorMessage = error.message;
-  //     console.error('There was an error!', error);
-  //   }
-  // })
 
 
 }

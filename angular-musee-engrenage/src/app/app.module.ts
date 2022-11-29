@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from "@angular/material/card";
 import { EngrenageInfoComponent } from './engrenage-info/engrenage-info.component';
 import { EngrenageCreateComponent } from './engrenage-create/engrenage-create.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatButtonModule,
         BrowserAnimationsModule,
         ReactiveFormsModule,
-        MatCardModule
+        MatCardModule,
+        FormsModule
 
     ],
   providers: [],
