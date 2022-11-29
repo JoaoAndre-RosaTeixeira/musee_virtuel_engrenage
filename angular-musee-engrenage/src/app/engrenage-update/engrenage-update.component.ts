@@ -1,17 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import { NgForm } from '@angular/forms'
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {NgForm} from "@angular/forms";
 import {Engrenage} from "../Class/engrenage";
-import {IEngrenage} from "../Interface/IEngrenage";
-import {HttpClientService} from "../../services/http-client.service";
 
 @Component({
-  selector: 'app-engrenage-create',
-  templateUrl: './engrenage-create.component.html',
-  styleUrls: ['./engrenage-create.component.scss']
+  selector: 'app-engrenage-update',
+  templateUrl: './engrenage-update.component.html',
+  styleUrls: ['./engrenage-update.component.scss']
 })
-export class EngrenageCreateComponent implements OnInit {
+export class EngrenageUpdateComponent implements OnInit {
 
   result: string = '';
 

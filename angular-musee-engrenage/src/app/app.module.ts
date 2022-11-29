@@ -15,6 +15,7 @@ import {MatCardModule} from "@angular/material/card";
 import { EngrenageInfoComponent } from './engrenage-info/engrenage-info.component';
 import { EngrenageCreateComponent } from './engrenage-create/engrenage-create.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { EngrenageUpdateComponent } from './engrenage-update/engrenage-update.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ContactComponent,
     EngrenageInfoComponent,
     EngrenageCreateComponent,
+    EngrenageUpdateComponent,
   ],
     imports: [
         HttpClientModule,
