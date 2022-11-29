@@ -57,7 +57,6 @@ class createEngrenage(Resource):
         print( request.get_json())
         print( "IXCCCCCCCCCCCCCCCCCCCCCIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
         res = request.get_json()
-        print(res.get("nomEngrenage"))
         nomEngrenage = res.get("nomEngrenage")
         avantage = res.get("avantage")
         inconvenient = res.get("inconvenient")

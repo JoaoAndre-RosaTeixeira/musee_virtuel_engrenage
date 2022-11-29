@@ -48,7 +48,7 @@ def createEngrenageSQL(nomEngrenage, avantage, inconvenient, image, Date, userNa
         if conn is not None:
             # create exchange table
             # YOUR CODE
-            insert_into(conn, "engrenage", {nomEngrenage}, {avantage}, {inconvenient}, {image}, {Date}, {userName})
+            insert_into(conn, "engrenage", nomEngrenage, avantage, inconvenient, image, Date, userName)
 
         else:
             print("Error! cannot create the database connection.")
