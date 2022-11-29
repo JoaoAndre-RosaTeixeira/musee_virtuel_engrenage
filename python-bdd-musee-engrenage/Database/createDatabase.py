@@ -31,9 +31,8 @@ def create_table(conn, name, cols):
 def inset_into(conn):
     cur = conn.cursor()
     cur.execute('''INSERT INTO engrenage 
-                (id, nomEngrenage, avantage, inconvenient, image, Date , userName) 
+                (nomEngrenage, avantage, inconvenient, image, Date , userName) 
                 VALUES (
-                1, 
                 'engrenages cylindriques', 
                 ('Les engrenages cylindriques a denture droite,
                 Simple et economique, 
@@ -47,9 +46,8 @@ def inset_into(conn):
                  ''')
 
     cur.execute('''INSERT INTO engrenage 
-                (id, nomEngrenage, avantage, inconvenient, image, Date , userName) 
+                (nomEngrenage, avantage, inconvenient, image, Date , userName) 
                 VALUES (
-                2, 
                 'Les engrenages cylindriques a denture helicoidale', 
                 ('Transmission plus souple et moins bruyante, 
                 Transmission d efforts et de vitesses plus importants,
@@ -64,9 +62,8 @@ def inset_into(conn):
     ''')
 
     cur.execute('''INSERT INTO engrenage 
-                    (id, nomEngrenage, avantage, inconvenient, image, Date , userName) 
+                    (nomEngrenage, avantage, inconvenient, image, Date , userName) 
                     VALUES (
-                    3, 
                     'Les engrenages cylindriques a denture helicoidale', 
                     ('Transmission plus souple et moins bruyante, 
                     Transmission d efforts et de vitesses plus importants,
@@ -80,9 +77,8 @@ def inset_into(conn):
                     ) 
         ''')
     cur.execute('''INSERT INTO engrenage 
-                    (id, nomEngrenage, avantage, inconvenient, image, Date , userName) 
+                    (nomEngrenage, avantage, inconvenient, image, Date , userName) 
                     VALUES (
-                    4, 
                     'Les engrenages cylindriques a denture helicoidale', 
                     ('Transmission plus souple et moins bruyante, 
                     Transmission d efforts et de vitesses plus importants,
@@ -96,9 +92,8 @@ def inset_into(conn):
                     ) 
         ''')
     cur.execute('''INSERT INTO engrenage 
-                    (id, nomEngrenage, avantage, inconvenient, image, Date , userName) 
+                    (nomEngrenage, avantage, inconvenient, image, Date , userName) 
                     VALUES (
-                    5, 
                     'Les engrenages cylindriques a denture helicoidale', 
                     ('Transmission plus souple et moins bruyante, 
                     Transmission d efforts et de vitesses plus importants,
@@ -112,9 +107,8 @@ def inset_into(conn):
                     ) 
         ''')
     cur.execute('''INSERT INTO engrenage 
-                    (id, nomEngrenage, avantage, inconvenient, image, Date , userName) 
+                    (nomEngrenage, avantage, inconvenient, image, Date , userName) 
                     VALUES (
-                    6, 
                     'Les engrenages cylindriques a denture helicoidale', 
                     ('Transmission plus souple et moins bruyante, 
                     Transmission d efforts et de vitesses plus importants,
@@ -128,9 +122,8 @@ def inset_into(conn):
                     ) 
         ''')
     cur.execute('''INSERT INTO engrenage 
-                    (id, nomEngrenage, avantage, inconvenient, image, Date , userName) 
+                    (nomEngrenage, avantage, inconvenient, image, Date , userName) 
                     VALUES (
-                    7, 
                     'Les engrenages cylindriques a denture helicoidale', 
                     ('Transmission plus souple et moins bruyante, 
                     Transmission d efforts et de vitesses plus importants,
@@ -159,7 +152,7 @@ def main():
             # create exchange table
             # YOUR CODE
             create_table(conn, "engrenage", '''
-                                id VARCHAR(255) PRIMARY KEY NOT NULL, 
+                                id VARCHAR(255) PRIMARY KEY NOT NULL AUTO_INCREMENT, 
                                 nomEngrenage VARCHAR(255) NOT NULL, 
                                 avantage VARCHAR(255) NOT NULL, 
                                 inconvenient VARCHAR(255) NOT NULL, 

@@ -28,121 +28,19 @@ def create_table(conn, name, cols):
     cur = conn.cursor()
     cur.execute(f"CREATE TABLE IF NOT EXISTS {name}({cols})")
 
-def inset_into(conn):
+def insert_into(conn, name, nomEngrenage, avantage, inconvenient, image, Date, userName):
     cur = conn.cursor()
-    cur.execute('''INSERT INTO engrenage 
-                (id, nomEngrenage, avantage, inconvenient, image, Date , userName) 
+    cur.execute(f'''INSERT INTO {name} 
+                (nomEngrenage, avantage, inconvenient, image, Date , userName) 
                 VALUES (
-                1, 
-                'engrenages cylindriques', 
-                ('Les engrenages cylindriques a denture droite,
-                Simple et economique, 
-                Pas d efforts axiaux'),
-                ('Vitesses de rotation limitees, 
-                BruyantEntraxes prenant des valeurs finies'), 
-                'noUrl', 
-                '2022-11-28',
-                'Lakhbir'
+                {nomEngrenage}, 
+                ({avantage}),
+                ({inconvenient}), 
+                {image}, 
+                {Date},
+                {userName}
                 )
                  ''')
-
-    cur.execute('''INSERT INTO engrenage 
-                (id, nomEngrenage, avantage, inconvenient, image, Date , userName) 
-                VALUES (
-                2, 
-                'Les engrenages cylindriques a denture helicoidale', 
-                ('Transmission plus souple et moins bruyante, 
-                Transmission d efforts et de vitesses plus importants,
-                Possibilites d entraxes infinis'),
-                ('Possibilites d entraxes infinis, 
-                Effort axial supplementaire,
-                Solution moins economique, Rendement moins bon'), 
-                'noUrl', 
-                '2022-11-28',
-                'Lakhbir'
-                ) 
-    ''')
-
-    cur.execute('''INSERT INTO engrenage 
-                    (id, nomEngrenage, avantage, inconvenient, image, Date , userName) 
-                    VALUES (
-                    3, 
-                    'Les engrenages cylindriques a denture helicoidale', 
-                    ('Transmission plus souple et moins bruyante, 
-                    Transmission d efforts et de vitesses plus importants,
-                    Possibilites d entraxes infinis'),
-                    ('Possibilites d entraxes infinis, 
-                    Effort axial supplementaire,
-                    Solution moins economique, Rendement moins bon'), 
-                    'noUrl', 
-                    '2022-11-28',
-                    'Lakhbir'
-                    ) 
-        ''')
-    cur.execute('''INSERT INTO engrenage 
-                    (id, nomEngrenage, avantage, inconvenient, image, Date , userName) 
-                    VALUES (
-                    4, 
-                    'Les engrenages cylindriques a denture helicoidale', 
-                    ('Transmission plus souple et moins bruyante, 
-                    Transmission d efforts et de vitesses plus importants,
-                    Possibilites d entraxes infinis'),
-                    ('Possibilites d entraxes infinis, 
-                    Effort axial supplementaire,
-                    Solution moins economique, Rendement moins bon'), 
-                    'noUrl', 
-                    '2022-11-28',
-                    'Lakhbir'
-                    ) 
-        ''')
-    cur.execute('''INSERT INTO engrenage 
-                    (id, nomEngrenage, avantage, inconvenient, image, Date , userName) 
-                    VALUES (
-                    5, 
-                    'Les engrenages cylindriques a denture helicoidale', 
-                    ('Transmission plus souple et moins bruyante, 
-                    Transmission d efforts et de vitesses plus importants,
-                    Possibilites d entraxes infinis'),
-                    ('Possibilites d entraxes infinis, 
-                    Effort axial supplementaire,
-                    Solution moins economique, Rendement moins bon'), 
-                    'noUrl', 
-                    '2022-11-28',
-                    'Lakhbir'
-                    ) 
-        ''')
-    cur.execute('''INSERT INTO engrenage 
-                    (id, nomEngrenage, avantage, inconvenient, image, Date , userName) 
-                    VALUES (
-                    6, 
-                    'Les engrenages cylindriques a denture helicoidale', 
-                    ('Transmission plus souple et moins bruyante, 
-                    Transmission d efforts et de vitesses plus importants,
-                    Possibilites d entraxes infinis'),
-                    ('Possibilites d entraxes infinis, 
-                    Effort axial supplementaire,
-                    Solution moins economique, Rendement moins bon'), 
-                    'noUrl', 
-                    '2022-11-28',
-                    'Lakhbir'
-                    ) 
-        ''')
-    cur.execute('''INSERT INTO engrenage 
-                    (id, nomEngrenage, avantage, inconvenient, image, Date , userName) 
-                    VALUES (
-                    7, 
-                    'Les engrenages cylindriques a denture helicoidale', 
-                    ('Transmission plus souple et moins bruyante, 
-                    Transmission d efforts et de vitesses plus importants,
-                    Possibilites d entraxes infinis'),
-                    ('Possibilites d entraxes infinis, 
-                    Effort axial supplementaire,
-                    Solution moins economique, Rendement moins bon'), 
-                    'noUrl', 
-                    '2022-11-28',
-                    'Lakhbir'
-                    ) 
-        ''')
 
     conn.commit()
 
@@ -151,23 +49,14 @@ def inset_into(conn):
 db_name = "dataEngrenage.db"
 
 
-def main():
+def main(nomEngrenage, avantage, inconvenient, image, Date, userName):
     conn = create_connection(db_name)
 
     try:
         if conn is not None:
             # create exchange table
             # YOUR CODE
-            create_table(conn, "engrenage", '''
-                                id VARCHAR(255) PRIMARY KEY NOT NULL, 
-                                nomEngrenage VARCHAR(255) NOT NULL, 
-                                avantage VARCHAR(255) NOT NULL, 
-                                inconvenient VARCHAR(255) NOT NULL, 
-                                image VARCHAR(255) NOT NULL, 
-                                Date DATE, 
-                                userName VARCHAR(255) NOT NULL 
-                                ''')
-            inset_into(conn)
+            insert_into(conn, "engrenage", {nomEngrenage}, {avantage}, {inconvenient}, {image}, {Date}, {userName})
 
         else:
             print("Error! cannot create the database connection.")

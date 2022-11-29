@@ -50,5 +50,12 @@ class Engrenage(Resource):
         print(engrenageid)
         return getEngrenage(engrenageid)
 api.add_resource(Engrenage, '/api/getEngrenages/<engrenageid>')
+
+class createEngrenage(Resource):
+    def get(self, engrenageid):
+        print(engrenageid)
+        return getEngrenage(engrenageid)
+api.add_resource(createEngrenage, '/api/getEngrenages/<engrenageid>')
+
 if __name__ == '__main__':
     app.run(debug=True)
