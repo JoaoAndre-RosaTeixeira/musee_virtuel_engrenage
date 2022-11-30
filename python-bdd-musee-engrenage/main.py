@@ -5,7 +5,9 @@ from Database.getEngrenage import getEngrenage
 import Database.createDatabase as createDatabase
 from Database.getEngrenages import getEngrenages
 from Database.createEngrenage import createEngrenageSQL
+from Database.updateEngrenage import getForUpdateEngrenageSQL
 from Database.updateEngrenage import updateEngrenageSQL
+
 from os.path import exists
 
 
@@ -48,7 +50,6 @@ api.add_resource(Engrenages, '/api/getEngrenages')
 
 class Engrenage(Resource):
     def get(self, engrenageid):
-        print(engrenageid)
         return getEngrenage(engrenageid)
 api.add_resource(Engrenage, '/api/getEngrenages/<engrenageid>')
 
@@ -67,10 +68,19 @@ api.add_resource(createEngrenage, '/api/createEngrenage', methods=["POST"])
 
 
 class updateEngrenage(Resource):
-    def get(self, updateEngrenageid):
-        print(updateEngrenageid)
-        return updateEngrenage(updateEngrenageid)
-api.add_resource(updateEngrenage, '/api/updateEngrenage/<engrenageid>')
+    def get(self, engrenageid):
+        return getForUpdateEngrenageSQL(engrenageid)
+    def post(self):
+        res = request.get_json()
+        nomEngrenage = res.get("nomEngrenage")
+        idEngrenage = res.get("id")
+        avantage = res.get("avantage")
+        inconvenient = res.get("inconvenient")
+        image = res.get("image")
+        Date = res.get("Date")
+        userName = res.get("userName")
+        updateEngrenageSQL(idEngrenage, nomEngrenage, avantage, inconvenient, image, Date, userName)
+api.add_resource(updateEngrenage, '/api/updateEngrenages/<engrenageid>')
 
 
 if __name__ == '__main__':

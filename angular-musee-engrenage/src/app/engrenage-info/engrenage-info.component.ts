@@ -30,6 +30,7 @@ export class EngrenageInfoComponent implements OnInit {
     this._activatedRoute.params.subscribe((params) => {
       this.httpService.getRequest<IEngrenage>("http://127.0.0.1:5000/api/getEngrenages/"+params['slug']).subscribe((json) => {
         this.engrenage = json
+        console.log(this.engrenage.id)
       });
     })
 

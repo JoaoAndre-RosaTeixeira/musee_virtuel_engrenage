@@ -1,19 +1,19 @@
 <form #form="ngForm" (submit)="submit(form)">
   <label for="nomEngrenage">nom Engrenage
-    <input type="text" name="nomEngrenage" id="nomEngrenage" ngModel>
+    <input type="text" name="nomEngrenage" id="nomEngrenage" [value]="engrenageNomEngrenage" required="required" ngModel>
   </label>
   <label for="avantage">avantages
-    <input type="text" name="avantage" id="avantage" ngModel>
+    <input type="text" name="avantage" id="avantage" [value]="engrenageAvantages" required="required" ngModel>
   </label>
   <label for="inconvenient">inconvenients
-    <input type="text" name="inconvenient" id="inconvenient" ngModel>
+    <input type="text" name="inconvenient" id="inconvenient" value="{{engrenageInconvenients}}" required="required" ngModel>
   </label>
   <label for="image">image
-    <input type="text" name="image" id="image" ngModel>
+    <input type="text" name="image" id="image" value="{{engrenageImage}}" required="required" ngModel>
   </label>
 
   <label for="userName">User name
-    <input type="text" name="userName" id="userName" ngModel>
+    <input type="text" name="userName" id="userName" value="{{engrenageUserName}}" required="required" ngModel>
   </label>
   <button mat-raised-button color="warn" type="submit">Ok</button>
 </form>

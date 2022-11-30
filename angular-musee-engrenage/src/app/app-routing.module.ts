@@ -5,12 +5,14 @@ import {EngrenagesComponent} from "./engrenages/engrenages.component";
 import {ContactComponent} from "./contact/contact.component";
 import {EngrenageInfoComponent} from "./engrenage-info/engrenage-info.component";
 import {EngrenageCreateComponent} from "./engrenage-create/engrenage-create.component";
+import {EngrenageUpdateComponent} from "./engrenage-update/engrenage-update.component";
 
 const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'engrenages', component: EngrenagesComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'engrenageInfo/:slug', component: EngrenageInfoComponent },
+  { path: 'updateEngrenage/:slug', component: EngrenageUpdateComponent },
   { path: 'engrenageCreate', component: EngrenageCreateComponent },
 
 ];
