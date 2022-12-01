@@ -9,8 +9,6 @@ def wikiGetEngrenages():
         r = requests.get("https://fr.wiktionary.org/wiki/engrenage").content
         soup = BeautifulSoup(r, features="html.parser")
         cont = soup.select_one("#mw-content-text > div.mw-parser-output > ol").text
-
-        print(cont)
         return cont
 
 

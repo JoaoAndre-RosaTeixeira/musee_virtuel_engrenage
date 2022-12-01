@@ -3,8 +3,11 @@ import { NgForm } from '@angular/forms'
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Engrenage} from "../Class/engrenage";
+import {User} from "../Class/User";
 import {IEngrenage} from "../Interface/IEngrenage";
 import {HttpClientService} from "../../services/http-client.service";
+import "../navbar/navbar.component"
+
 
 @Component({
   selector: 'app-engrenage-create',
@@ -31,7 +34,7 @@ export class EngrenageCreateComponent implements OnInit {
       form.value.userName
     )
 
-    console.log(engrenage)
+    console.log(User.nom())
 
     let request =
       this.http.post(`http://127.0.0.1:5000/api/createEngrenage`,
@@ -45,7 +48,8 @@ export class EngrenageCreateComponent implements OnInit {
         })
 
     request.subscribe((data) => {
-      console.log(data); })
+      console.log(data);
+    })
     // ou
     // this.result = form.controls['username'].value;
   }

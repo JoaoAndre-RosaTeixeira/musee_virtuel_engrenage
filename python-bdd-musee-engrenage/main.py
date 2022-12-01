@@ -7,6 +7,7 @@ from Database.getEngrenages import getEngrenages
 from Database.createEngrenage import createEngrenageSQL
 from Database.updateEngrenage import getForUpdateEngrenageSQL
 from Database.updateEngrenage import updateEngrenageSQL
+from Database.connexionUser import connexionUserBDD
 
 from os.path import exists
 
@@ -17,7 +18,7 @@ def install(package):
 
 # subprocess.Popen('echo "Geeks 4 Geeks"', shell=True)
 
-pips_install = ['numpy', 'panda', 'requests', 'beautifulsoup4', "Flask ", "flask-restful", "flask-cors", "requests"]
+pips_install = ['numpy', 'pandas', 'requests', 'beautifulsoup4', "Flask ", "flask-restful", "flask-cors", "requests"]
 
 # for pip in pips_install:
 #     try:
@@ -29,7 +30,6 @@ from flask import Flask, request
 from flask_restful import Resource, Api
 from flask_cors import CORS
 
-print(exists("dataEngrenage.db"))
 if exists("dataEngrenage.db") == False:
     createDatabase.main()
 
@@ -82,6 +82,14 @@ class updateEngrenage(Resource):
         updateEngrenageSQL(idEngrenage, nomEngrenage, avantage, inconvenient, image, Date, userName)
 api.add_resource(updateEngrenage, '/api/updateEngrenages/<engrenageid>')
 
+
+class connexionUser(Resource):
+    def post(self):
+        res = request.get_json()
+        nom = res.get("nom")
+        password = res.get("password")
+        return connexionUserBDD(nom, password)
+api.add_resource(connexionUser, '/api/connectUser', methods=["POST"])
 
 if __name__ == '__main__':
     app.run(debug=True)

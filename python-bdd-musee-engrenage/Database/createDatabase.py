@@ -137,6 +137,14 @@ def inset_into(conn):
                     ) 
         ''')
 
+    cur.execute('''INSERT INTO user 
+                        (nom, password) 
+                        VALUES (
+                        'admin', 
+                        'admin'
+                        ) 
+            ''')
+
     conn.commit()
 
 
@@ -159,6 +167,12 @@ def main():
                                 image VARCHAR(255) NOT NULL, 
                                 Date DATE, 
                                 userName VARCHAR(255) NOT NULL 
+                                ''')
+
+            create_table(conn, "user", '''
+                                id integer PRIMARY KEY AUTOINCREMENT, 
+                                nom VARCHAR(255) NOT NULL, 
+                                password VARCHAR(255) NOT NULL
                                 ''')
             inset_into(conn)
 

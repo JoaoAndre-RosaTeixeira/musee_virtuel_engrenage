@@ -12,7 +12,6 @@ import {IEngrenage} from "../Interface/IEngrenage";
 })
 export class EngrenagesComponent implements OnInit {
   get engrenagesListres(): Array<IEngrenage> | undefined {
-    console.log(this._engrenagesList)
     return this._engrenagesList;
   }
 
